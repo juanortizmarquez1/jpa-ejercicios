@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+    <Pelicula id="1" titulo="titulo1" date="2021-09-01" presupuesto="100.0"
+              recaudacion="1231.0" pais="ES"/>
+    <Critica id="1" critico="Antonio" texto="Está bien" valoracion="6" pelicula="1"/>
+    <Critica id="2" critico="Pepe" texto="Muy mal" valoracion="2" pelicula="1"/>
+    <Critica id="3" critico="Martín" texto="Muy chula" valoracion="9" pelicula="1"/>
+</dataset>

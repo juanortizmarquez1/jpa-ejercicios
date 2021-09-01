@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/filmoteca/filmoteca.iml" filepath="$PROJECT_DIR$/filmoteca/filmoteca.iml" />
       <module fileurl="file://$PROJECT_DIR$/jpa-ejercicios.iml" filepath="$PROJECT_DIR$/jpa-ejercicios.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mensajes/mensajes.iml" filepath="$PROJECT_DIR$/mensajes/mensajes.iml" />
     </modules>
   </component>
 </project>

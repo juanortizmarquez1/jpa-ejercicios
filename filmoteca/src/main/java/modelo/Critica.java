@@ -1,5 +1,7 @@
 package modelo;
 
+import org.hibernate.validator.constraints.Range;
+
 import javax.persistence.*;
 import javax.validation.Constraint;
 import javax.validation.constraints.Max;
@@ -12,8 +14,7 @@ public class Critica {
     Long id;
     String critico;
     String texto;
-    @Min(1)
-    @Max(10)
+    @Range(min = 1, max = 10)
     Integer valoracion;
     @ManyToOne
     @JoinColumn(name = "pelicula", nullable = false)

@@ -15,6 +15,7 @@ import javax.persistence.Persistence;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import static org.junit.Assert.*;
+
 public class TestMensajes {
     private static EntityManagerFactory emf;
     private static IDatabaseConnection connection;

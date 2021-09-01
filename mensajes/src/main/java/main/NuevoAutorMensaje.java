@@ -2,6 +2,7 @@ package main;
 
 import modelo.Autor;
 import modelo.Mensaje;
+import singleton.MensajeSingleton;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -14,8 +15,7 @@ import java.util.Date;
 public class NuevoAutorMensaje {
     public static void main(String[] args) {
         Autor autor;
-        EntityManagerFactory emf = Persistence
-                .createEntityManagerFactory("mensajes-mysql");
+        EntityManagerFactory emf = MensajeSingleton.getInstance().getEmf();
         EntityManager em = emf.createEntityManager();
         // Marcamos el comienzo de la transacción
         em.getTransaction().begin();

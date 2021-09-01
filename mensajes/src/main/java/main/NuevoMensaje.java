@@ -2,6 +2,7 @@ package main;
 
 import modelo.Autor;
 import modelo.Mensaje;
+import singleton.MensajeSingleton;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -12,8 +13,7 @@ import java.io.InputStreamReader;
 import java.util.Date;
 public class NuevoMensaje {
     public static void main(String[] args) {
-        EntityManagerFactory emf = Persistence
-                .createEntityManagerFactory("mensajes-mysql");
+        EntityManagerFactory emf = MensajeSingleton.getInstance().getEmf();
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
         try{

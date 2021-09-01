@@ -2,6 +2,7 @@ package main;
 
 import modelo.Autor;
 import modelo.Mensaje;
+import singleton.MensajeSingleton;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -11,8 +12,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 public class MensajesAutor {
     public static void main(String[] args) {
-        EntityManagerFactory emf = Persistence
-                .createEntityManagerFactory("mensajes-mysql");
+        EntityManagerFactory emf = MensajeSingleton.getInstance().getEmf();
         EntityManager em = emf.createEntityManager();
         try {
             System.out.println("--Buscando mensajes de autor");

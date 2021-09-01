@@ -1,6 +1,7 @@
 package main;
 
 import modelo.Mensaje;
+import singleton.MensajeSingleton;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -17,8 +18,7 @@ public class BuscaMensajes {
 
     @SuppressWarnings("unchecked")
     public static void main(String[] args) {
-        EntityManagerFactory emf = Persistence
-                .createEntityManagerFactory("mensajes-mysql");
+        EntityManagerFactory emf = MensajeSingleton.getInstance().getEmf();
         EntityManager em = emf.createEntityManager();
         // No necesitamos crear una transacción
         // No modificamos datos y no hay problemas de bloqueos

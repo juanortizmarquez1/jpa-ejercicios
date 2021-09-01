@@ -1,21 +1,21 @@
-package modelo;
+package personalizado;
 
+import modelo.Pelicula;
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.database.IDatabaseConnection;
 import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
+import org.hibernate.LazyInitializationException;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import singleton.MensajeSingleton;
+import singleton.FilmotecaSingleton;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 public class TestPersonalizados {
     private static EntityManagerFactory emf;
@@ -26,7 +26,7 @@ public class TestPersonalizados {
     public static void initDatabaseTest() {
         try {
             // Inicializamos sólo una vez el emf antes de todos los tests
-            emf = MensajeSingleton.getInstance().getEmf();
+            emf = FilmotecaSingleton.getInstance().getEmf();
             // Inicializamos la conexión a la BD necesaria para que DBUnit cargue los datos de los tests
             Class.forName("com.mysql.jdbc.Driver");
             Connection jdbcConnection = (Connection) DriverManager
@@ -48,11 +48,15 @@ public class TestPersonalizados {
 
     @Test
     public void compruebaLazy() {
-        emf = MensajeSingleton.getInstance().getEmf();
+        emf = FilmotecaSingleton.getInstance().getEmf();
         EntityManager em = emf.createEntityManager();
-        Autor autor = em.find(Autor.class, 1L);
+        Pelicula pelicula = em.find(Pelicula.class, 1L);
         em.close();
-        assertTrue("El autor no ha cargado los mensajes, está en modo lazy",autor.getMensajes() != null);
+        try{
+            assertEquals(2, pelicula.getCriticas().size());
+        }catch (LazyInitializationException liz){
+            fail("No se pueden cargar los datos porque están de tipo Lazy");
+        }
     }
 
 }

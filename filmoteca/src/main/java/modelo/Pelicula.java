@@ -15,7 +15,7 @@ public class Pelicula {
     Double presupuesto;
     Double recaudacion;
     String pais;
-    @OneToMany(mappedBy = "pelicula", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "pelicula", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     Set<Critica> criticas = new HashSet<>();
 
     public Pelicula() {}

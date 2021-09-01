@@ -18,7 +18,7 @@ public class AutorDao extends Dao<Autor, Long> {
         return em.find(Autor.class, id);
     }
 
-    public List<Autor> findAllAutores(Long id) {
+    public List<Autor> findAllAutores() {
         EntityManager em = this.getEntityManager();
         return (List<Autor>) em.createQuery(query).getResultList();
     }

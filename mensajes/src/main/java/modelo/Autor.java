@@ -15,7 +15,7 @@ public class Autor {
     private String correo;
     private String nombre;
     @OneToMany(mappedBy = "autor", cascade = CascadeType.ALL, fetch =
-            FetchType.EAGER)
+            FetchType.LAZY)
     private Set<Mensaje> mensajes = new HashSet<>();
     @Version
     private int version;

@@ -18,6 +18,10 @@ public class Mensaje {
     private String texto;
     private Date fecha;
     @ManyToOne
+    //Si comento esto el programa da error, porque hay que cambiar la referencia en el dataset1.xml y poner el atributo
+    //correspondiente al nuevo nombre de la columna.
+    //En la base de datos cambia el nombre de la columna.
+    //El nombre del atributo correspondiente a la columna autor.
     @JoinColumn(name = "autor", nullable = false)
     private Autor autor;
     @Version
@@ -72,4 +76,5 @@ public class Mensaje {
                 ", autor=" + autor.getNombre()+
                 '}';
     }
+
 }

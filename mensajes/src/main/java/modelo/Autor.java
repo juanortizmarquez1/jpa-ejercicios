@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+
 //@Table(name = "Autor")
 public class Autor {
     @Id

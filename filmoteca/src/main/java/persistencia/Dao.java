@@ -20,6 +20,7 @@ abstract class Dao<T,K> {
     public T update(T t) {
         return (T) em.merge(t);
     }
+
     public void delete(T t) {
         t = em.merge(t);
         em.remove(t);

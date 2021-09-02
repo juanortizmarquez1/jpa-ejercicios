@@ -6,7 +6,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-public class Pelicula {
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "Tipo", discriminatorType = DiscriminatorType.STRING)
+public abstract class Pelicula {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
@@ -95,4 +97,6 @@ public class Pelicula {
                 ", pais='" + pais + '\'' +
                 '}';
     }
+
+    public abstract String tipo();
 }
